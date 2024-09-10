@@ -1,0 +1,11 @@
+const readline = require('readline')
+const interface = readline.createInterface({
+    intup: process.stdin,
+    output: process.stdout
+})
+interface.question('informe o primeiro numero: ', (num1) => {
+    interface.question('informe o segundo numero: ', (num2) => { 
+        console.log(` a soma dos valores é: ${parseInt(num1) + parseInt(num2)})
+    }
+
+    }
