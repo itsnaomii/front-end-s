@@ -7,7 +7,9 @@ const iface = readline.createInterface({
 
 iface.question('informe o primeiro numero: ', (num1) => {
     iface.question('informe o segundo numero: ', (num2) => {
-        console.log(`A soma entre ${parseInt(num1)} e ${parseInt(num2)} é igual a ${parseInt(num1) + parseInt(num2)} `)
+      console.log(`A soma entre ${parseInt(num1)} e ${parseInt(num2)} é igual a ${parseInt(num1) + parseInt(num2)} `)
+      iface.close()
+   
         
          
          })
