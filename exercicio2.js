@@ -10,3 +10,5 @@ rl.question('escreva seu nome: ', (nome) => {
     console.log(`Olá, ${nome}! `)
     rl.close();
 })
+
+//c
