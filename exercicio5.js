@@ -12,6 +12,7 @@ iface.question('informe a primeira nota: ', (nota1) => {
     iface.question('informe a segundo nota: ', (nota2) => {
       const media = ((nota1 + nota2) / 2)
       console.log(`Media do aluno: ${media} `)
+      iface.close()
   }) 
 
 })
