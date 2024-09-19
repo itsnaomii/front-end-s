@@ -1,0 +1,16 @@
+{
+  "name": "tudo-init",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Gerenciador de Tarefas",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Naomí Salvador",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "inquirer": "^11.0.2"
+  }
+}
