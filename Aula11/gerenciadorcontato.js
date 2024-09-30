@@ -86,6 +86,67 @@ const showMessage = () => {
   }
 }
 
+const listContacts = () => {
+  if (contacts.length === 0) {
+    message = "Nenhum contato encontrado."
+  } else console.log("Lista de Contatos:")
+  contacts.forEach((contact, index) => {
+    console.log(`${index + 1}. ${contact.name}: ${contact.phone}`)
+  })
+}
+
+const updateContact = async () => {
+  if (contacts.length === 0) {
+    console.log("Nenhum contato para atualizar.")
+    /* message = "Nenhum contato para atualizar." ////talvez de problema aqui!!!!*/
+    return
+  }
+
+  const contactName = await input({
+    message: "Selecione o contato a ser atualizado:"
+  })
+
+  const contactIndex = contacts.findIndex(
+    (contact) => contact.naome === contactName
+  )
+  if (contactIndex === -1) {
+    console.log("Contato não encontrado")
+    return
+  }
+  const contact = contacts[contactIndex]
+
+  //Atualiza o nome
+  const newName =
+    (await input({
+      message: `Novo nome do contato ( "${contact.name}" ): `
+    })) || contact.name // mantem nome vazio
+
+  //atualiza o telefone
+  let phone
+  let hasDDD
+
+  while (true) {
+    hasDDD = await confirm({ message: "Este numero possui DDD?" })
+    phone =
+      (await input({
+        message: `Novo telefone (ou pressione enter para manter "${contact.phone}"): `
+      })) || contact.phone //mantem o telefone atual se vazio
+
+    if (!isValidPhone(phone, hasDDD)) {
+      message = hasDDD
+        ? "O telefone com DDD deve ter 11 dígitos (incluindo DDD). Tente novamente."
+        : "O telefone sem DDD deve ter 9 dígitos. Tente novamente."
+      console.log(message)
+      continue
+    }
+
+    break
+  }
+
+  contacts[contactIndex] = { name: newName, phone }
+  message = "Contato atualizado com sucesso!"
+}
+
 const start = async () => {
   await fetchContacts()
 
@@ -97,6 +158,8 @@ const start = async () => {
       message: "Menu > ",
       choices: [
         { name: "Adicionar contato", value: "add" },
+        { name: "Lista Telefonica", value: "list" },
+        { name: "Atualizar Contato", value: "update" },
         { name: "Sair", value: "exit" }
       ]
     })
@@ -104,6 +167,12 @@ const start = async () => {
     switch (option) {
       case "add":
         await addContact()
+        break
+      case "list":
+        listContacts()
+        break
+      case "update":
+        updateContact()
         break
       case "exit":
         console.log("Até a próxima!")

@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "inquirer": "^11.0.2"
+  },
+  "name": "front-end-s",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
