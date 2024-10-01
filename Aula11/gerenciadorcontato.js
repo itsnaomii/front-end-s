@@ -119,7 +119,7 @@ const updateContact = async () => {
   })
 
   const contactIndex = contacts.findIndex(
-    (contact) => contact.naome === contactName
+    (contact) => contact.name === contactName
   )
   if (contactIndex === -1) {
     console.log("Contato não encontrado")
@@ -159,6 +159,29 @@ const updateContact = async () => {
   message = "Contato atualizado com sucesso!"
 }
 
+const deleteContact = async () => {
+  const contactToDelete = await input({
+    message: "Selecione o(s) contato(s) que deseja deletar:",
+    choices: contacts.map((contact) => contact.name) // é para aparecer uma lista para o
+  }) //usuario escolher o nome do contato na lista
+
+  if (contactToDelete.length == 0) {
+    //verifica se nheum contato foi selecionado pelo usuario
+    console.log("Nenhum contato foi selecionada!")
+    return
+  }
+
+  const updatedContacts = contacts.filter((contact) => {
+    //filtra e cria uma nova lista que contem apenas os contatos
+    return !contactToDelete.includes(contact.name) //não selecionados para deletar
+  })
+
+  contacts = updatedContacts
+
+  await saveContacts()
+  console.log("Contato(s) deletados(s) com sucesso!")
+}
+
 const start = async () => {
   //função principal que inicia o gerenciador
   await fetchContacts() //chama fetchContacts para carregar contatos do arquivo
@@ -173,7 +196,8 @@ const start = async () => {
         { name: "Adicionar contato", value: "add" },
         { name: "Lista Telefonica", value: "list" },
         { name: "Atualizar Contato", value: "update" },
-        { name: "Sair", value: "exit" }
+        { name: "Deletar Contato", value: "delete" },
+        { name: "Sair", value: "out" }
       ]
     })
 
@@ -187,7 +211,10 @@ const start = async () => {
       case "update":
         updateContact()
         break
-      case "exit":
+      case "delete":
+        await deleteContact()
+        break
+      case "out":
         console.log("Até a próxima!")
         return
     }
