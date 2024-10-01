@@ -1,30 +1,38 @@
 import fs from "node:fs/promises"
 import { select, input, confirm } from "@inquirer/prompts"
 
-const file = "contacts.json"
+const file = "contacts.json" //nome do arquivo onde os contatos são armazenados
 
-let contacts
+let contacts //armazena os contatos
 let message = "Bem-vindo ao seu gerenciador de contatos!"
 
+//função fetchContacts
 const fetchContacts = async () => {
   try {
-    const data = await fs.readFile(file, "utf-8")
+    //le os contatos do arquivo json e os armazena na variavel contacts
+    const data = await fs.readFile(file, "utf-8") // se não conseguir ler ele aparece como um array vazio
     contacts = JSON.parse(data)
   } catch (error) {
     contacts = []
   }
 }
 
+//função saveContacts
 const saveContacts = async () => {
+  //salva a lista de contatos no arquivo json
   await fs.writeFile(file, JSON.stringify(contacts, null, 2))
 }
 
+//função isValidPhone
 const isValidPhone = (phone, hasDDD) => {
+  //explicativo aqui relação a presença do DDD na hora de inserir o numero
   return hasDDD ? phone.length === 11 : phone.length === 9
 }
 
+//função addContact                 //interage com o usuario p\ add um novo contato
 const addContact = async () => {
-  let name, phone, hasDDD
+  //pergunta se o numero possui DDD e valida o telefone
+  let name, phone, hasDDD //adiciona o novo contato ao array contacts
 
   while (true) {
     if (message) {
@@ -79,6 +87,7 @@ const addContact = async () => {
 }
 
 const showMessage = () => {
+  //vai exibir a mensagem armazenada na variavel message se houver
   if (message !== "") {
     console.log(message)
     console.log("")
@@ -87,7 +96,9 @@ const showMessage = () => {
 }
 
 const listContacts = () => {
+  //lista os contatos armazenados e se não tiver
   if (contacts.length === 0) {
+    // ele infroma que nenhum foi encontrado
     message = "Nenhum contato encontrado."
   } else console.log("Lista de Contatos:")
   contacts.forEach((contact, index) => {
@@ -96,6 +107,7 @@ const listContacts = () => {
 }
 
 const updateContact = async () => {
+  // para atualizar um contato existente
   if (contacts.length === 0) {
     console.log("Nenhum contato para atualizar.")
     /* message = "Nenhum contato para atualizar." ////talvez de problema aqui!!!!*/
@@ -148,8 +160,9 @@ const updateContact = async () => {
 }
 
 const start = async () => {
-  await fetchContacts()
-
+  //função principal que inicia o gerenciador
+  await fetchContacts() //chama fetchContacts para carregar contatos do arquivo
+  //mostra o menu com as opções adicionar,listar,atualizar,sair etc
   while (true) {
     showMessage()
     await saveContacts()
@@ -181,4 +194,4 @@ const start = async () => {
   }
 }
 
-start()
+start() //incia a aplicação chamando a função start

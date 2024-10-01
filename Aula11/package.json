@@ -1,17 +1,42 @@
 {
-  "dependencies": {
-    "inquirer": "^11.0.2"
-  },
   "name": "front-end-s",
   "version": "1.0.0",
+  "description": "",
   "type": "module",
   "main": "index.js",
+  "dependencies": {
+    "ansi-escapes": "^4.3.2",
+    "ansi-regex": "^5.0.1",
+    "ansi-styles": "^4.3.0",
+    "chardet": "^0.7.0",
+    "cli-width": "^4.1.0",
+    "color-convert": "^2.0.1",
+    "color-name": "^1.1.4",
+    "emoji-regex": "^8.0.0",
+    "external-editor": "^3.1.0",
+    "iconv-lite": "^0.4.24",
+    "inquirer": "^11.0.2",
+    "is-fullwidth-code-point": "^3.0.0",
+    "mute-stream": "^1.0.0",
+    "os-tmpdir": "^1.0.2",
+    "run-async": "^3.0.0",
+    "rxjs": "^7.8.1",
+    "safer-buffer": "^2.1.2",
+    "signal-exit": "^4.1.0",
+    "string-width": "^4.2.3",
+    "strip-ansi": "^6.0.1",
+    "tmp": "^0.0.33",
+    "tslib": "^2.7.0",
+    "type-fest": "^0.21.3",
+    "undici-types": "^6.19.8",
+    "wrap-ansi": "^6.2.0",
+    "yoctocolors-cjs": "^2.1.2"
+  },
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "description": ""
+  "license": "ISC"
 }
