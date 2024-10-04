@@ -7,12 +7,12 @@ class Circuito {
     }
   //para calcular a area do curcuito 
   calcularArea() {
-    return Math.PI * Math.pow(this.raio, 2)
+    return Math.PI * Math.pow(this.raio, 2)  // math.pi ta dando o valor do pi e math.pow(this.raio,2) ele o raio ao quadrado
   }   
 
   //para caulcular o perimetro do circuito
   calcularPerimetro() {
-    return 2 * Math.PI * this.raio 
+    return 2 * Math.PI * this.raio   // 2 x PI x r
   }
 }
 
