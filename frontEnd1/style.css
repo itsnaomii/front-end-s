@@ -9,9 +9,9 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #f4faf4;
+  background-color: rgb(190, 20, 113);
 
-  font-family: "Poppins", sans-serif;
+  font-family: "Fjalla One", sans-serif;
 }
 
 ul {
@@ -24,7 +24,7 @@ ul {
   align-items: center;
   max-width: 370px;
   width: 100%;
-  background-color: #ffffff;
+  background-color: #efe6f0;
   border-radius: 24px;
   padding: 25px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
@@ -39,7 +39,7 @@ ul {
   height: 36%;
   width: 100%;
   border-radius: 24px 24px 0 0;
-  background-color: #4070f4;
+  background-color: #eb1391;
 }
 
 .image {
@@ -47,7 +47,7 @@ ul {
   height: 150px;
   width: 150px;
   border-radius: 50%;
-  background-color: #4070f4;
+  background-color: #eb1391;
   padding: 3px;
   margin-bottom: 10px;
 }
@@ -74,7 +74,7 @@ ul {
 }
 
 .text-data .job {
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 400;
 }
 
@@ -88,28 +88,36 @@ ul {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
+  color: rgb(224, 24, 134);
   font-size: 18px;
   height: 34px;
   width: 34px;
   border-radius: 50%;
-  margin: 0 8px;
+  margin: 0 12px;
+  opacity: 0.8;
   text-decoration: none;
+  transition: background-color 0.3s;
+  border-right: 2px solid #eb1391;
+}
+ 
+.media-buttons a:hover {
+  color: #ffffff;
+
 }
 
-#facebook a {
+#facebook a:hover {
   background-color: #4267b2;
 }
 
-#twitter a {
+#twitter a:hover {
   background-color: #1da1f2;
-}
+} 
 
-#instagram a {
+#instagram a:hover {
   background-color: #e1306c;
 }
 
-#youtube a {
+#youtube a:hover {
   background-color: #ff0000;
 }
 
@@ -126,14 +134,14 @@ ul {
   border: none;
   margin: 0 10px;
   padding: 8px 18px;
-  background-color: #4070f4;
+  background-color: #eb1391;
   cursor: pointer;
   border-radius: 24px;
   transition: all 0.3s ease;
 }
 
 .contact-buttons button:hover {
-  background-color: #0e4bf1;
+  background-color: #a02a6f;
 }
 
 .analytics {
@@ -147,7 +155,7 @@ ul {
   align-items: center;
   color: #333;
   padding: 0 14px;
-  border-right: 2px solid #e7e7e7;
+  border-right: 2px solid #eb1391;
 }
 
 .data i {
