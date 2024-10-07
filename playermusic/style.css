@@ -1,0 +1,138 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  background-color: #0f0d13;
+  font-family: "Libre Baskerville", sans-serif;
+}
+
+#app {
+  display: grid;
+  grid-template-columns: max-content max-content;
+  grid-template-areas: "A B" "A C";
+  gap: 2rem;
+  place-content: center;
+  height: 100vh;
+}
+
+#player-1 {
+  grid-area: A;
+  padding: 3.125rem 2.375rem;
+}
+
+#player-1 .wrapper {
+  width: 11.875rem;
+}
+
+#player-1 img {
+  width: 11.875rem;
+  height: 11.875rem;
+  object-fit: cover;
+  border-radius: 0.375rem;
+}
+
+#player-1 .info {
+  margin-top: 1.75rem;
+}
+
+#player-2 {
+  grid-area: B;
+  height: fit-content;
+}
+
+#player-3 {
+  grid-area: C;
+  height: fit-content;
+}
+
+.player {
+  background-color: #2a2141;
+  padding: 1.75rem;
+  border-radius: 0.625rem;
+}
+
+.player img {
+  width: 5.25rem;
+  height: 5.25rem;
+  object-fit: cover;
+  border-radius: 0.375rem;
+}
+
+.info-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+}
+
+.info {
+  color: #e1e1e6;
+}
+
+.info h1 {
+  font-size: 1.5rem;
+  margin-bottom: 0.6rem;
+}
+
+.info p {
+  opacity: 0.67;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
